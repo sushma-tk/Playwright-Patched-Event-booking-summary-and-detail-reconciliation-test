@@ -1,14 +1,13 @@
 const { test, expect } = require('@playwright/test');
 
 // ---------------------- Test data ----------------------
-const BASE_URL = 'https://eventhub.rahulshettyacademy.com';
-const EMAIL = '********@gmail.com';
-const PASSWORD = '*****@12';
+const EMAIL = process.env.EVENTHUB_EMAIL;
+const PASSWORD = process.env.EVENTHUB_PASSWORD;
 
-const targetBookingId = 12146;
+const targetBookingId = 34056;
 
 const PATCH = {
-  bookingRef: 'PATCH-BOOK-12146',
+  bookingRef: 'PATCH-BOOK-34056',
   title: 'Patched Transit Event',
   quantity: 7,
   totalPrice: '7777',
@@ -18,7 +17,7 @@ const formattedTotal = `$${Number(PATCH.totalPrice).toLocaleString('en-US')}`;
 
 // ---------------------- Login function ----------------------
 async function login(page) {
-  await page.goto(`${BASE_URL}/login`);
+  await page.goto("/login");
   await page.getByPlaceholder('you@email.com').fill(EMAIL);
   await page.getByLabel('Password').fill(PASSWORD);
   await page.getByRole('button', { name: 'Sign In' }).click();

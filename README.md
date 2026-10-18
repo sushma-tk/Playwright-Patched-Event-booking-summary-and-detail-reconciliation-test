@@ -1,4 +1,4 @@
-# EventHub – Patch One Booking in Transit (Playwright)
+# EventHub – Patched One Booking in Transit (Playwright)
 
 This test intercepts the EventHub bookings API, changes **one** booking at runtime, and checks that the UI shows the patched values while all other bookings stay live.
 
